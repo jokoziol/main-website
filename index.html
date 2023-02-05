@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="./index.css">
+
+        <title>jokoziol</title>
+
+        <script src="script.js" defer></script>
+    </head>
+    <body onLoad="init()">
+
+        <div class="terminalWindow">
+            <div>
+                <p class="terminalLeadingText">root@localhost:~$ </p>
+                <p class="terminalText" id="terminalRowOne"></p>
+            </div>
+            <div>
+                <p class="terminalText" id="terminalRowTwo"></p>
+                <p></p>
+            </div>
+            <div>
+                <p class="terminalLeadingText" id="terminalEndText" style="display: none;">root@localhost:~$</p>
+            </div>
+        </div>
+    </body>
+</html>
