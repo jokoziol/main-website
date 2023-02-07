@@ -7,10 +7,17 @@
         <title>jokoziol</title>
 
         <script src="script.js" defer></script>
+        <noscript>
+            <style>
+                .jsOnly{
+                    display: none;
+                 }
+            </style>
+        </noscript>
     </head>
     <body onLoad="init()">
 
-        <div class="terminalWindow">
+        <div class="terminalWindow jsOnly">
             <div>
                 <p class="terminalLeadingText">root@localhost:~$ </p>
                 <p class="terminalText" id="terminalRowOne"></p>
@@ -23,5 +30,22 @@
                 <p class="terminalLeadingText" id="terminalEndText" style="display: none;">root@localhost:~$</p>
             </div>
         </div>
+
+        <noscript>
+            <div class="terminalWindow">
+                <div>
+                    <p class="terminalLeadingText">root@localhost:~$ </p>
+                    <p class="terminalText">./init</p>
+                </div>
+                <div>
+                    <p class="terminalText">[100%]<br><br>=> GitHub: <a href="https://github.com/jokoziol">https://github.com/jokoziol</a></p>
+                    <p></p>
+                </div>
+                <div>
+                    <p class="terminalLeadingText">root@localhost:~$</p>
+                </div>
+            </div>
+        </noscript>
+
     </body>
 </html>
