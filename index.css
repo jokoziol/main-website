@@ -34,6 +34,10 @@ body{
     color: #838383;
 }
 
+.loadAfterInitialAnimation{
+    display: none;
+}
+
 a:link,
 a:visited{
     color: #6ABFEE;
