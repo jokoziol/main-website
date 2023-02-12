@@ -1,6 +1,6 @@
 const text = "./init";
 
-let intervalId, terminalInitIntervalId;
+let intervalId, terminalInitIntervalId, terminalCursorIntervalId;
 
 let count = 0
 
@@ -15,11 +15,7 @@ function display(){
         clearInterval(intervalId)
 
         setTimeout(() => {
-            let elements = document.getElementsByClassName("loadAfterInitialAnimation")
-            for(let i = 0; i < elements.length; i++){
-                elements[i].style.display = "inline"
-            }
-
+            changeVisibility("loadAfterInitialAnimation", "inline")
             document.getElementById("terminalRowTwo").innerText = " "
         }, 300)
 
@@ -48,21 +44,30 @@ function terminalInitOutput(){
         }, 200)
 
         setTimeout(() => {
-            document.getElementById("terminalEndText").style.display = "inline"
+            document.getElementById("terminalCursor").style.display = "inline"
+            changeVisibility("loadAfterInitCommand", "inline")
 
-            setInterval(() => terminalCursor(), 150)
+            addKeydownEventListener()
+            terminalCursorIntervalId = setInterval(() => toggleTerminalCursor(), 150)
         }, 200)
     }
 }
 
-function terminalCursor(){
-    const element = document.getElementById("terminalEndText")
-    if (element.hasAttribute("underscore")){
-        element.removeAttribute("underscore")
-        element.innerText = "root@localhost:~$"
-    }else{
-        element.setAttribute("underscore", true)
-        element.innerText = "root@localhost:~$ _"
+function toggleTerminalCursor(){
+    const element = document.getElementById("terminalCursor")
+
+    if (element.style.display === "none"){
+        element.style.display = "inline"
+        return
+    }
+
+    element.style.display = "none"
+}
+
+function changeVisibility(className, display){
+    let elements = document.getElementsByClassName(className)
+    for(let i = 0; i < elements.length; i++){
+        elements[i].style.display = display
     }
 }
 

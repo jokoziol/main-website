@@ -7,6 +7,7 @@
         <title>jokoziol</title>
 
         <script src="script.js" defer></script>
+        <script src="terminal.js" defer></script>
         <noscript>
             <style>
                 .jsOnly{
@@ -17,7 +18,7 @@
     </head>
     <body onLoad="init()">
 
-        <div class="terminalWindow jsOnly">
+        <div class="jsOnly" id="terminalWindow">
             <div>
                 <p class="terminalLeadingText">root@localhost:~$ </p>
                 <p class="terminalText" id="terminalRowOne"></p>
@@ -26,8 +27,10 @@
                 <p class="terminalText" id="terminalRowTwo"></p>
                 <p></p>
             </div>
-            <div class="loadAfterInitialAnimation">
-                <p class="terminalLeadingText" id="terminalEndText" style="display: none;">root@localhost:~$</p>
+            <div class="loadAfterInitCommand">
+                <p class="terminalLeadingText">root@localhost:~$ </p>
+                <p id="commandInput" class="terminalText"></p>
+                <p class="terminalLeadingText" id="terminalCursor" style="display: none;">_</p>
             </div>
         </div>
 
