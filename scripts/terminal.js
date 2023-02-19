@@ -97,9 +97,6 @@ function getAllCommands(args){
     let argsArray = args.length === 0 ? [] : args.split(" ")
 
     return [{
-        key: "help",
-        value: args.length === 0 ? "" : getHelp()
-    },{
         key: "clear",
         value: "",
         description: "Clears the output"
@@ -109,41 +106,7 @@ function getAllCommands(args){
         description: "Outputs a text",
         argsDescription: "[text]"
     },{
-        key: "generateNumber",
-        value: getRandomNumber(argsArray[0], argsArray[1]),
-        description: "Generates a number between the specified number range",
-        argsDescription: "min max"
+        key: "",
+        value: "",
     }]
-}
-
-function getRandomNumber(min, max){
-
-    if(min > max){
-        return 0
-    }
-
-    if(min != parseInt(min) || max != parseInt(max)){
-        return 0
-    }
-
-    return Math.floor(Math.random() * (max - min) + max)
-}
-
-function getHelp(){
-
-    const allCommands = getAllCommands("")
-    let helpResult = "----------------"
-
-    for(const [key, value] of Object.entries(allCommands)){
-
-        if ("description" in allCommands[key]){
-            helpResult += "\n\n- " + value.key + ": " + value.description
-        }
-
-        if("argsDescription" in allCommands[key]){
-            helpResult += "\n=> Arguments: " + value.argsDescription
-        }
-    }
-
-    return helpResult + "\n\n-----------------"
 }
